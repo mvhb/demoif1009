@@ -17,22 +17,24 @@ class AirplaneMode {
     @Before
     fun setup(){
         mDevice.pressHome()
-        val appDrawer = UiScrollable(UiSelector().scrollable(true))
-        appDrawer.scrollForward()
         val settings: UiObject = mDevice.findObject(UiSelector().text("Settings"))
         settings.click()
+        sleep(3000)
     }
     @Test
     fun enableAirplaneMode(){
         val networkInternet: UiObject = mDevice.findObject(UiSelector().textContains("Network & internet"))
         networkInternet.click()
+        sleep(3000)
         val advanced: UiObject = mDevice.findObject(UiSelector().textContains("Advanced"))
         advanced.click()
+        sleep(3000)
         val switch: UiObject = mDevice.findObject(UiSelector().resourceId("android:id/switch_widget"))
         switch.click()
+        sleep(3000)
         val mobileNetwork: UiObject = mDevice.findObject(UiSelector().textContains("Mobile network"))
         assertFalse(mobileNetwork.isClickable)
-        sleep(200)
+        sleep(5000)
     }
     @After
     fun clear(){
