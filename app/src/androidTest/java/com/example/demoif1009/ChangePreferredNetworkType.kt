@@ -8,7 +8,6 @@ import org.junit.Test
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.runner.RunWith
-import java.lang.Thread.sleep
 
 @RunWith(AndroidJUnit4::class)
 class ChangePreferredNetworkType {
@@ -19,7 +18,6 @@ class ChangePreferredNetworkType {
         mDevice.pressHome()
         val settings: UiObject = mDevice.findObject(UiSelector().text("Settings"))
         settings.click()
-        sleep(3000)
     }
     @Test
     fun changePreferredNetworkType(){
@@ -27,19 +25,15 @@ class ChangePreferredNetworkType {
         networkInternet.click()
         val mobileNetwork: UiObject = mDevice.findObject(UiSelector().textMatches("Mobile network"))
         mobileNetwork.click()
-        sleep(3000)
         val advanced: UiObject = mDevice.findObject(UiSelector().textMatches("Advanced"))
         advanced.click()
-        sleep(3000)
         val networkType: UiObject = mDevice.findObject(UiSelector().textMatches("Preferred network type"))
         networkType.click()
-        sleep(3000)
         val secondOption: UiObject = mDevice.findObject(UiSelector().textMatches("3G"))
         secondOption.click()
         networkType.click()
         assertTrue(secondOption.isChecked)
         assertTrue(secondOption.isEnabled)
-        sleep(5000)
     }
     @After
     fun clear(){
