@@ -22,7 +22,7 @@ class ChangePreferredNetworkType {
         sleep(3000)
     }
     @Test
-    fun enableAirplaneMode(){
+    fun changePreferredNetworkType(){
         val networkInternet: UiObject = mDevice.findObject(UiSelector().textMatches("Network & internet"))
         networkInternet.click()
         val mobileNetwork: UiObject = mDevice.findObject(UiSelector().textMatches("Mobile network"))
